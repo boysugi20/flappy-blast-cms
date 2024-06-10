@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wallet_accounts",
+  "info": {
+    "singularName": "wallet-account",
+    "pluralName": "wallet-accounts",
+    "displayName": "wallet_account",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "wallet_address": {
+      "type": "string"
+    },
+    "referral_code": {
+      "type": "string"
+    }
+  }
+}
