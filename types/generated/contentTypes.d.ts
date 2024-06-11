@@ -362,37 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiWalletAccountWalletAccount extends Schema.CollectionType {
-  collectionName: 'wallet_accounts';
-  info: {
-    singularName: 'wallet-account';
-    pluralName: 'wallet-accounts';
-    displayName: 'wallet_account';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    wallet_address: Attribute.String;
-    referral_code: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::wallet-account.wallet-account',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::wallet-account.wallet-account',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -819,6 +788,70 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiFlappyGameFlappyGame extends Schema.CollectionType {
+  collectionName: 'flappy_games';
+  info: {
+    singularName: 'flappy-game';
+    pluralName: 'flappy-games';
+    displayName: 'flappy_game';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    wallet_address: Attribute.String;
+    score: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::flappy-game.flappy-game',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::flappy-game.flappy-game',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWalletAccountWalletAccount extends Schema.CollectionType {
+  collectionName: 'wallet_accounts';
+  info: {
+    singularName: 'wallet-account';
+    pluralName: 'wallet-accounts';
+    displayName: 'wallet_account';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    wallet_address: Attribute.String;
+    referral_code: Attribute.String;
+    high_score: Attribute.Integer;
+    twitter_account: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wallet-account.wallet-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wallet-account.wallet-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -829,7 +862,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::wallet-account.wallet-account': ApiWalletAccountWalletAccount;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -838,6 +870,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::flappy-game.flappy-game': ApiFlappyGameFlappyGame;
+      'api::wallet-account.wallet-account': ApiWalletAccountWalletAccount;
     }
   }
 }

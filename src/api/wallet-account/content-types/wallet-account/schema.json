@@ -17,6 +17,12 @@
     },
     "referral_code": {
       "type": "string"
+    },
+    "high_score": {
+      "type": "integer"
+    },
+    "twitter_account": {
+      "type": "string"
     }
   }
 }
