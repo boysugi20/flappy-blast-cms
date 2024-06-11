@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "twitter_accounts",
+  "info": {
+    "singularName": "twitter-account",
+    "pluralName": "twitter-accounts",
+    "displayName": "twitter_account"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -819,6 +819,36 @@ export interface ApiFlappyGameFlappyGame extends Schema.CollectionType {
   };
 }
 
+export interface ApiTwitterAccountTwitterAccount extends Schema.CollectionType {
+  collectionName: 'twitter_accounts';
+  info: {
+    singularName: 'twitter-account';
+    pluralName: 'twitter-accounts';
+    displayName: 'twitter_account';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::twitter-account.twitter-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::twitter-account.twitter-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiWalletAccountWalletAccount extends Schema.CollectionType {
   collectionName: 'wallet_accounts';
   info: {
@@ -871,6 +901,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::flappy-game.flappy-game': ApiFlappyGameFlappyGame;
+      'api::twitter-account.twitter-account': ApiTwitterAccountTwitterAccount;
       'api::wallet-account.wallet-account': ApiWalletAccountWalletAccount;
     }
   }
