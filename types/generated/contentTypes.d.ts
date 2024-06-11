@@ -794,16 +794,16 @@ export interface ApiFlappyGameFlappyGame extends Schema.CollectionType {
     singularName: 'flappy-game';
     pluralName: 'flappy-games';
     displayName: 'flappy_game';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     wallet_address: Attribute.String;
     score: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::flappy-game.flappy-game',
       'oneToOne',
