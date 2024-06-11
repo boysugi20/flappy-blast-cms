@@ -10,18 +10,16 @@ function generateRandomAlphanumeric(length = 10) {
 }
 
 module.exports = {
-  beforeCreate(data) {
-    data.referral_code = generateRandomAlphanumeric();
+  beforeCreate(event) {
+    const { data, where, select, populate } = event.params;
+
+    // let's do a 20% discount everytime
+    event.params.data.referral_code = generateRandomAlphanumeric();
   },
 
   afterCreate(event) {
     const { result, params } = event;
 
     // do something to the result;
-  },
-  async beforeUpdate(params, data) {
-    if (!data.referralCode) {
-      data.referralCode = generateRandomAlphanumeric();
-    }
   },
 };
