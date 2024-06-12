@@ -22,7 +22,9 @@
       "type": "integer"
     },
     "twitter_account": {
-      "type": "string"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::twitter-account.twitter-account"
     }
   }
 }

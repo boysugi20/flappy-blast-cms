@@ -4,15 +4,30 @@
   "info": {
     "singularName": "twitter-account",
     "pluralName": "twitter-accounts",
-    "displayName": "twitter_account"
+    "displayName": "twitter_account",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "is_wallet": {
+      "type": "boolean"
+    },
+    "is_socialaction": {
+      "type": "boolean"
+    },
+    "twitter_name": {
       "type": "string"
+    },
+    "twitter_pic": {
+      "type": "string"
+    },
+    "twitter_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
