@@ -865,7 +865,7 @@ export interface ApiWalletAccountWalletAccount extends Schema.CollectionType {
     draftAndPublish: false;
   };
   attributes: {
-    wallet_address: Attribute.String;
+    wallet_address: Attribute.String & Attribute.Required & Attribute.Unique;
     referral_code: Attribute.String;
     high_score: Attribute.Integer;
     twitter_account: Attribute.Relation<
