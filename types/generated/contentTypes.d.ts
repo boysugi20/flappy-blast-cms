@@ -836,6 +836,7 @@ export interface ApiTwitterAccountTwitterAccount extends Schema.CollectionType {
     twitter_name: Attribute.String;
     twitter_pic: Attribute.String;
     twitter_id: Attribute.String & Attribute.Required & Attribute.Unique;
+    twitter_username: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

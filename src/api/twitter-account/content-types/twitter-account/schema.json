@@ -28,6 +28,9 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "twitter_username": {
+      "type": "string"
     }
   }
 }
