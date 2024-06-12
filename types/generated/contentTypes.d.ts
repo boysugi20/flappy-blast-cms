@@ -825,15 +825,19 @@ export interface ApiTwitterAccountTwitterAccount extends Schema.CollectionType {
     singularName: 'twitter-account';
     pluralName: 'twitter-accounts';
     displayName: 'twitter_account';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    name: Attribute.String;
+    is_wallet: Attribute.Boolean;
+    is_socialaction: Attribute.Boolean;
+    twitter_name: Attribute.String;
+    twitter_pic: Attribute.String;
+    twitter_id: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::twitter-account.twitter-account',
       'oneToOne',
@@ -864,7 +868,11 @@ export interface ApiWalletAccountWalletAccount extends Schema.CollectionType {
     wallet_address: Attribute.String;
     referral_code: Attribute.String;
     high_score: Attribute.Integer;
-    twitter_account: Attribute.String;
+    twitter_account: Attribute.Relation<
+      'api::wallet-account.wallet-account',
+      'oneToOne',
+      'api::twitter-account.twitter-account'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
